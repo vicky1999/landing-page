@@ -1,2 +1,2 @@
 # landing-page
-Landing Page assignment
+Landing Page for website
