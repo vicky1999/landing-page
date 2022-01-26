@@ -178,8 +178,6 @@ class Reviews extends React.Component {
                         </div>
                     </div>
                     <div className='review-controls-right'>
-                        {/* <img src='/Images/left.png' className='review-nav-btn' /> */}
-                        {/* <img src='/Images/right.png' className='review-nav-btn' /> */}
                         <Button variant="inherit" color='inherit' 
                             sx={{ width: '60px', height: '60px', border: '2px solid red', borderRadius: '50%' }}
                             onClick={this.selectPreviousCard}
