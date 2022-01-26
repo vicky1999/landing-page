@@ -1,0 +1,31 @@
+.footer {
+    background-color: #F8F8F8;
+    width: 100%;
+    height: auto;
+    padding: 100px 100px;
+}
+
+.footer-product {
+    display: flex;
+    margin: 10px 10px;
+    justify-content: center;
+}
+
+.footer-link {
+    margin: auto 10px;
+    text-decoration: none;
+    width: auto;
+    text-align: left;
+}
+
+.links-grid {
+    width: 100%;
+    max-width: 250px;
+    margin: auto;
+}
+
+@media screen and (max-width: 600px) {
+    .links-grid {
+        max-width: 100px;
+    }
+}

@@ -1,0 +1,47 @@
+.header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.product {
+    display: flex;
+    width: 10%;
+    min-width: 150px;
+}
+
+.links {
+    width: 20%;
+    min-width: 170px;
+    height: 100%;
+    margin: auto 0px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.links > a {
+    text-decoration: none;
+    color: #4F5665;
+}
+
+.logo {
+    margin: 10px;
+
+}
+
+.bold-text {
+    font-weight: bold;
+}
+
+.product-name {
+    margin: auto;
+}
+
+.auth {
+    width: 20%;
+    min-width: 250px;
+    margin: auto 0px;
+    display: flex;
+    justify-content: space-evenly;
+}

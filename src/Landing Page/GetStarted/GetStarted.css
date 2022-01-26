@@ -1,0 +1,41 @@
+.get-started {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.get-started-left {
+    width: 50%;
+}
+
+.get-started-text {
+    width: 80%;
+    margin: 50px auto;
+    font-size: 3vw;
+}
+
+.get-started-left {
+    width: 40%;
+}
+
+.get-started-right {
+    width: 50%;
+}
+
+.illustration-image {
+    width: 100%;
+    height: auto;
+    padding: 50px 0px;
+    max-width: 611px;
+    max-height:382px;
+}
+
+.get-started-button {
+    background-color: #F53838;
+    color: white;
+    box-shadow: 0 25px 25px rgba(245, 56, 56, 0.35);
+}
+
+.get-started-button:hover {
+    background-color: #F53838;
+    opacity: .8;
+}

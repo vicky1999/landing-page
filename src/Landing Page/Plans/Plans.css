@@ -1,0 +1,64 @@
+.plans {
+    margin: 100px auto;
+}
+
+.plan-text {
+    color: #4F5665;
+    width: 60%;
+    max-width: 500px;
+    margin: auto;
+}
+
+.plans-desc {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.plan-image {
+    margin-bottom: 30px;
+}
+
+.plan-content {
+    width: 20%;
+    min-width: 200px;
+    height: auto;
+    border: 2px solid gray;
+    border-radius: 10px;
+    
+    margin: 20px 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.plan-points {
+    list-style-image: url('/public/Images/tick.png');
+}
+
+.list-item {
+    text-align: left;
+    margin: 30px 0;
+}
+
+.pricings {
+    position: relative;
+    bottom: 0px;
+    margin: 50px auto;
+}
+
+.per-month {
+    color: gray;
+    font-weight: normal;
+}
+
+.select-btn {
+    width: 150px;
+    box-shadow: 0 15px 15px rgba(245, 56, 56, 0.35);
+}
+
+.select-btn:hover {
+    color: #f53838d3;
+    opacity: .8;
+}
