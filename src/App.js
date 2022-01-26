@@ -5,15 +5,21 @@ import GetStarted from './Landing Page/GetStarted/GetStarted';
 import Plans from './Landing Page/Plans/Plans';
 import Reviews from './Landing Page/Reviews/Reviews';
 import Footer from './Landing Page/Footer/Footer';
+import DatePicker from './Landing Page/DatePicker/DatePicker';
+import DateRangePicker from './Landing Page/DatePicker/DateRangePicker';
 
 function App() {
   return (
     <div className="App">
-      <Header />
+      {/* <Header />
       <GetStarted />
       <Plans />
       <Reviews />
-      <Footer />
+      <Footer /> */}
+
+      {/* <DatePicker /> */}
+
+      <DatePicker />
     </div>
   );
 }
