@@ -2,24 +2,16 @@ import { Menu, Select, Button, TextField } from '@mui/material';
 
 
 import { DateRangePicker } from 'react-bootstrap-daterangepicker';
-// you will need the css that comes with bootstrap@3. if you are using
-// a tool like webpack, you can do the following:
 import 'bootstrap/dist/css/bootstrap.css';
-// you will also need the css that comes with bootstrap-daterangepicker
 import 'bootstrap-daterangepicker/daterangepicker.css';
 
-import Divider from '@mui/material/Divider';
-import Paper from '@mui/material/Paper';
-import MenuList from '@mui/material/MenuList';
 import MenuItem from '@mui/material/MenuItem';
-import ListItemText from '@mui/material/ListItemText';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import Typography from '@mui/material/Typography';
 
 import './DatePicker.css';
 import './DateRangePicker.css';
 
 import React, { useRef, useState } from 'react';
+import moment from 'moment';
 
 function DatePicker(props) {
 
@@ -43,18 +35,6 @@ function DatePicker(props) {
 
     const open = Boolean(anchorEl);
 
-    const [isDateSelected, setIsDateSelected] = useState(false);
-
-    // var rangePicker = (
-    //     <DateRangePicker startDate={ (date) => {
-    //             setStartDate(date);
-    //             setValue(`Custom: ${startDate} - ${endDate}`) ;
-    //         } } endDate={(date) => {
-    //             setEndDate(date);
-    //             setValue(`Custom: ${startDate} - ${endDate}`);
-    //         } } 
-    //     />
-    // );
 
     const handleClick = (event) => {
       setAnchorEl(event.currentTarget);
@@ -67,15 +47,31 @@ function DatePicker(props) {
         setSelectedImage(imageMaps[value]);
         if(value === 'Custom') {
             setValue(`Custom: ${startDate} - ${endDate}`);
-            // rangePicker = <DateRangePicker />
             document.getElementById('picker-trigger').click();
-            setIsDateSelected(true);
         }
         else {
+            let sdate = '';
+            let edate = '';
             setValue(value);
-            setStartDate('');
-            setEndDate('');
-            setIsDateSelected(false);    
+            if(value === 'Today') {
+                sdate = moment().format('DD/MM/YYYY');
+                edate = moment().format('DD/MM/YYYY');
+            }
+            else if(value === 'Yesterday') {
+                sdate = moment().subtract(1, 'day').format('DD/MM/YYYY');
+                edate = moment().subtract(1, 'day').format('DD/MM/YYYY');
+            }
+            else if(value === 'Last Week') {
+                sdate = moment().subtract(7, 'day').format('DD/MM/YYYY');
+                edate = moment().subtract(7, 'day').format('DD/MM/YYYY');
+            }
+            else if(value === 'Last Month') {
+                sdate = moment().subtract(1, 'months').format('DD/MM/YYYY');
+                edate = moment().subtract(2, 'months').format('DD/MM/YYYY');
+            }
+
+            setStartDate(sdate);
+            setEndDate(edate);    
         }
         handleClose();
     }
@@ -92,31 +88,16 @@ function DatePicker(props) {
         setStartDate(sdate);
         setEndDate(edate);
         setValue(`Custom: ${sdate} - ${edate}`);
-        console.log(value);
     }
 
     return (
         <div>
             <div className='date-picker'>
                 <div className='date-label'>View Date for: </div>
-                {/* <img src='/Images/Group 730.png' /> */}
                 <div>
                     <DateRangePicker onApply={dateApplied} id='date-range-picker'>
                         <div id="picker-trigger" style={rangePickerStyle}></div>
                     </DateRangePicker>
-                    {/* <TextField
-                            id="basic-button"
-                            ref={inputElement}
-                            value={value}
-                            aria-controls={open ? 'basic-menu' : undefined}
-                            aria-haspopup="true"
-                            aria-expanded={open ? 'true' : undefined}
-                            onClick={handleClick}
-                            size='small'
-                            contentEditable={false}
-                            className='view-data'
-                        >
-                        </TextField> */}
                     <div id='basic-button' ref={inputElement} onClick={handleClick} className='select-input-handler'>
                         <span><img src={selectedImage} className='select-icon' /></span>{value}
                     </div>
@@ -151,7 +132,6 @@ function DatePicker(props) {
                     </Menu>
                 </div>
             </div>
-            {/* { isDateSelected ? <div style={rangePickerStyle}>{rangePicker}</div> : '' } */}
 
         </div>
     );
