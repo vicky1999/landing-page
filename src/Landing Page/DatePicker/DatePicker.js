@@ -1,5 +1,13 @@
 import { Menu, Select, Button, TextField } from '@mui/material';
 
+
+import { DateRangePicker } from 'react-bootstrap-daterangepicker';
+// you will need the css that comes with bootstrap@3. if you are using
+// a tool like webpack, you can do the following:
+import 'bootstrap/dist/css/bootstrap.css';
+// you will also need the css that comes with bootstrap-daterangepicker
+import 'bootstrap-daterangepicker/daterangepicker.css';
+
 import Divider from '@mui/material/Divider';
 import Paper from '@mui/material/Paper';
 import MenuList from '@mui/material/MenuList';
@@ -12,11 +20,21 @@ import './DatePicker.css';
 import './DateRangePicker.css';
 
 import React, { useRef, useState } from 'react';
-import DateRangePicker from './DateRangePicker';
 
 function DatePicker(props) {
+
+    const imageMaps = {
+        'All Time': '/Images/Group.png',
+        'Today': '/Images/Group 726.png',
+        'Yesterday': '/Images/Group 727.png',
+        'Last Week': '/Images/Group 728.png',
+        'Last Month': '/Images/Group 729.png',
+        'Custom': '/Images/Group 730.png'
+    }
+
     const [anchorEl, setAnchorEl] = useState(null);
     const [value, setValue] = useState('All Time');
+    const [selectedImage, setSelectedImage] = useState(imageMaps['All Time']);
 
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
@@ -27,16 +45,16 @@ function DatePicker(props) {
 
     const [isDateSelected, setIsDateSelected] = useState(false);
 
-    var rangePicker = (
-        <DateRangePicker startDate={ (date) => {
-                setStartDate(date);
-                setValue(`Custom: ${startDate} - ${endDate}`) ;
-            } } endDate={(date) => {
-                setEndDate(date);
-                setValue(`Custom: ${startDate} - ${endDate}`);
-            } } 
-        />
-    );
+    // var rangePicker = (
+    //     <DateRangePicker startDate={ (date) => {
+    //             setStartDate(date);
+    //             setValue(`Custom: ${startDate} - ${endDate}`) ;
+    //         } } endDate={(date) => {
+    //             setEndDate(date);
+    //             setValue(`Custom: ${startDate} - ${endDate}`);
+    //         } } 
+    //     />
+    // );
 
     const handleClick = (event) => {
       setAnchorEl(event.currentTarget);
@@ -46,9 +64,11 @@ function DatePicker(props) {
     };
 
     const menuSelected = (value) => {
+        setSelectedImage(imageMaps[value]);
         if(value === 'Custom') {
             setValue(`Custom: ${startDate} - ${endDate}`);
             // rangePicker = <DateRangePicker />
+            document.getElementById('picker-trigger').click();
             setIsDateSelected(true);
         }
         else {
@@ -63,7 +83,16 @@ function DatePicker(props) {
     const rangePickerStyle = {
         position: 'absolute',
         top: inputElement?.current?.offsetTop === undefined ? '0px' : `${inputElement.current.offsetTop + 40}px`,
-        left: inputElement?.current?.offsetLeft === undefined ? '0px' : `${inputElement.current.offsetLeft - 25}px`,
+        left: inputElement?.current?.offsetLeft === undefined ? '0px' : `${inputElement.current.offsetLeft  }px`,
+    }
+
+    const dateApplied = (event, picker) => {
+        let sdate = picker.startDate.format('DD/MM/YYYY');
+        let edate = picker.endDate.format('DD/MM/YYYY');
+        setStartDate(sdate);
+        setEndDate(edate);
+        setValue(`Custom: ${sdate} - ${edate}`);
+        console.log(value);
     }
 
     return (
@@ -72,20 +101,25 @@ function DatePicker(props) {
                 <div className='date-label'>View Date for: </div>
                 {/* <img src='/Images/Group 730.png' /> */}
                 <div>
-                    <TextField
-                        id="basic-button"
-                        ref={inputElement}
-                        value={value}
-                        aria-controls={open ? 'basic-menu' : undefined}
-                        aria-haspopup="true"
-                        aria-expanded={open ? 'true' : undefined}
-                        onClick={handleClick}
-                        size='small'
-                        contentEditable={false}
-                        className='view-data'
-                    >
-                    </TextField>
-
+                    <DateRangePicker onApply={dateApplied} id='date-range-picker'>
+                        <div id="picker-trigger" style={rangePickerStyle}></div>
+                    </DateRangePicker>
+                    {/* <TextField
+                            id="basic-button"
+                            ref={inputElement}
+                            value={value}
+                            aria-controls={open ? 'basic-menu' : undefined}
+                            aria-haspopup="true"
+                            aria-expanded={open ? 'true' : undefined}
+                            onClick={handleClick}
+                            size='small'
+                            contentEditable={false}
+                            className='view-data'
+                        >
+                        </TextField> */}
+                    <div id='basic-button' ref={inputElement} onClick={handleClick} className='select-input-handler'>
+                        <span><img src={selectedImage} className='select-icon' /></span>{value}
+                    </div>
                     <Menu
                         id="basic-menu"
                         anchorEl={anchorEl}
@@ -117,7 +151,8 @@ function DatePicker(props) {
                     </Menu>
                 </div>
             </div>
-            { isDateSelected ? <div style={rangePickerStyle}>{rangePicker}</div> : '' }
+            {/* { isDateSelected ? <div style={rangePickerStyle}>{rangePicker}</div> : '' } */}
+
         </div>
     );
 }

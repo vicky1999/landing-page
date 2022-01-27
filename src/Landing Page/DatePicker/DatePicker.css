@@ -24,3 +24,15 @@
     padding-top: 5px;
     margin-right: 10px;
 }
+
+.select-input-handler {
+    width: 400px;
+    border: 2px solid gray;
+    padding: 5px 2px;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.select-icon {
+    padding-right: 10px;
+}

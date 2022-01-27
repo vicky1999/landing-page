@@ -5,7 +5,7 @@ import Range from './Range';
 
 
 /*Smart Component*/
-class DateRangePicker extends React.Component {
+class DateRangePickerOld extends React.Component {
     constructor(props){
         super(props);
         this.state = {
@@ -49,4 +49,4 @@ class DateRangePicker extends React.Component {
     }
 }
 
-export default DateRangePicker;
+export default DateRangePickerOld;
