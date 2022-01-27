@@ -1,0 +1,109 @@
+.discount-section {
+    display: flex;
+}
+
+.discounts {
+    width: 400px;
+    margin: auto;
+}
+
+.discount-head-item {
+    width: 100%;
+}
+
+.discount-items {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.discount-item {
+    border: 1px solid gray;
+    border-radius: 3px;
+    width: 30%;
+    height: auto;
+    max-width: 115px;
+    margin-right: 3%;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    text-align: justify;
+    cursor: pointer;
+}
+
+.popular-display {
+    height: 15px;
+    background-image: url('/public/Images/Group\ 790.svg');
+    background-position-x: right;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.discount-text {
+    width: 60%;
+    margin: auto;
+    text-align: center;
+    padding: 10px 10px;
+    margin-bottom: 15px;
+}
+
+.normal-display {
+    height: 15px;
+}
+
+.discount-selected {
+    border: 1px solid red;
+    background-color: #FF535C1A;
+}
+
+.price-section {
+    margin-top: 10px;
+}
+
+.text-red {
+    color: #FF404A;
+}
+
+.price-strikeout {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.grab-btn {
+    width: 100%;
+    height: auto;
+    margin: 10px auto;
+}
+
+  
+.grab-deal-button {
+    width: 100%;
+    height: auto;
+    color: white;
+    border: none;
+    border-radius: 4px;    
+    font-size: 20px;
+    padding: 12px 18px;
+    font-size: 16px;
+    text-transform: initial;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: #FF535C;
+    box-shadow: 0 0 4px #999;
+    outline: none;
+}
+
+
+/* Ripple effect */
+.grab-deal-button {
+    background-position: center;
+    transition: background 0.8s;
+  }
+  .grab-deal-button:hover {
+    background: #FF535C radial-gradient(circle, transparent 1%, #FF535C 1%) center/15000%;
+  }
+  .grab-deal-button:active {
+    background-color: #ff535bb0;
+    background-size: 100%;
+    transition: background 0s;
+  }

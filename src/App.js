@@ -1,25 +1,52 @@
-import logo from './logo.svg';
 import './App.css';
-import Header from './Landing Page/Header/Header';
-import GetStarted from './Landing Page/GetStarted/GetStarted';
-import Plans from './Landing Page/Plans/Plans';
-import Reviews from './Landing Page/Reviews/Reviews';
-import Footer from './Landing Page/Footer/Footer';
-import DatePicker from './Landing Page/DatePicker/DatePicker';
-import DateRangePicker from './Landing Page/DatePicker/DateRangePicker';
+import Discount from './Discount/Discount';
 
 function App() {
+
+  const price = 149.00;
+
+  const discounts = [
+    {
+      isRange: false,
+      count: 3,
+      discount: 10,
+      isPopular: false
+    },
+    {
+      isRange: false,
+      count: 4,
+      discount: 20,
+      isPopular: true
+    },
+    {
+      isRange: false,
+      count: 5,
+      discount: 30,
+      isPopular: false
+    },
+    {
+      isRange: false,
+      count: 6,
+      discount: 35,
+      isPopular: false
+    },
+    {
+      isRange: false,
+      count: 7,
+      discount: 40,
+      isPopular: false
+    },
+    {
+      isRange: false,
+      count: 8,
+      discount: 45,
+      isPopular: true
+    }
+  ];
+
   return (
     <div className="App">
-      {/* <Header />
-      <GetStarted />
-      <Plans />
-      <Reviews />
-      <Footer /> */}
-
-      {/* <DatePicker /> */}
-
-      <DatePicker />
+      <Discount className='discount-section' discounts={discounts} price={price} />
     </div>
   );
 }
