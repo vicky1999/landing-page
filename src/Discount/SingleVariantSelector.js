@@ -40,9 +40,11 @@ const SingleVariantSelector = (props) => {
                     {optionsList}
                 </select>
                 <div className="variants-item quantity-selector" aria-label="Default select example">
-                    <span className='qty-txt'>Quantity</span>
+                    {/* <span className='qty-txt'>Quantity</span> */}
                     <div className='qty-change-buttons'>
-                        <div className='left-side quantity-change-btn' onClick={ () => { quantityChanged(-1) } }>-</div>
+                        <div className='left-side quantity-change-btn' onClick={ () => { quantityChanged(-1) } }>
+                            -
+                        </div>
                         <div className='quantity-display'>{quantity}</div>
                         <div className='left-side quantity-change-btn' onClick={ () => { quantityChanged(1) } }>+</div>
 
