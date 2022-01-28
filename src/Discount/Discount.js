@@ -4,16 +4,23 @@ import React, { useState } from 'react';
 
 import './Discount.css';
 import DiscountItem from './DiscountItem';
+import SingleVariantSelector from './SingleVariantSelector';
 
 const Discount = (props) => {
     const discounts = props.discounts;
-
+    
+    const [totalPrice, setTotalPrice] = useState(props.price * discounts[0].count);
     const [selectedIndex, setSelectedIndex] = useState(0);
-    const [price, setPrice] = useState(props.price);
+
+    let discountPrice = (totalPrice - (totalPrice * (discounts[0].discount/100))).toFixed(2);
+
+    const [price, setPrice] = useState(discountPrice);
 
     const discountChanged = (ind) => {
         setSelectedIndex(ind);
-        let discountPrice = ( props.price - props.price * (discounts[ind].discount/100)).toFixed(2);
+        let tp=(props.price * discounts[ind].count).toFixed(2);
+        setTotalPrice(tp);
+        let discountPrice = ( tp - (tp * (discounts[ind].discount/100))).toFixed(2);
         setPrice(discountPrice);
     }
 
@@ -33,10 +40,16 @@ const Discount = (props) => {
             <div className='discount-items'>
                 {discountsList}
             </div>
+            <div className='variant-selector'>
+            {
+                props.variants.length > 0 && props.variantConfig.singleVariant &&
+                <SingleVariantSelector variants={props.variants} variantConfig={props.variantConfig} discountPrice={price} price={totalPrice} discount={discounts[selectedIndex]} />
+            }
+            </div>
             <div className='price-section'>
                 Total: &nbsp;<span className='text-red'>${price}</span>&nbsp;&nbsp;
-                <span className='price-strikeout'>${props.price}</span>&nbsp;
-                <span className='text-red'>(Save ${(props.price - price).toFixed(2)})</span>
+                <span className='price-strikeout'>${totalPrice}</span>&nbsp;
+                <span className='text-red'>(Save ${(totalPrice - price).toFixed(2)})</span>
             </div>
             <div className='grab-btn'>
                 <button className='grab-deal-button'>Grab this Deal</button>

@@ -98,12 +98,107 @@
 .grab-deal-button {
     background-position: center;
     transition: background 0.8s;
-  }
-  .grab-deal-button:hover {
+}
+.grab-deal-button:hover {
     background: #FF535C radial-gradient(circle, transparent 1%, #FF535C 1%) center/15000%;
-  }
-  .grab-deal-button:active {
+}
+.grab-deal-button:active {
     background-color: #ff535bb0;
     background-size: 100%;
     transition: background 0s;
-  }
+}
+
+.variant-selector {
+    margin: 10px auto;
+}
+
+.variant-selector-section {
+    width: 93%;
+    padding: 10px;
+    text-align: left;
+    padding: 10px;
+
+    border: 2px solid red;
+    background-color: #FF535C1A;
+    border-radius: 3px;
+}
+
+.variant-head-text {
+    color: #000000B2;
+}
+
+.selection-section {
+    width: 90%;
+    margin: 10px 0px;
+    min-width: 350px;
+}
+
+.variants-item {
+    width: 100%;
+    height: 25px;
+    background-color: #0000001A;
+    border-radius: 2px;
+}
+
+.qty-txt {
+    color: #00000066;
+    font-size: 8px;
+    position: relative;
+    top: -5px;
+}
+
+.quantity-selector {
+    margin: 10px 0px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    height: 25px;
+    width: 97%;
+    min-width: 300px;
+}
+
+.quantity-change-btn {
+    cursor: pointer;
+    width: 50px;
+    height: auto;
+    text-align: center;
+    background-color: gray;
+    position: relative;
+    top: -5px;
+    
+    /* color: white; */
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    text-transform: initial;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: transparent;
+    outline: none;
+}
+
+
+/* Ripple effect */
+.quantity-change-btn {
+    background-position: center;
+    transition: background 0.8s;
+}
+.quantity-change-btn:hover {
+    background: #ffffff4d radial-gradient(circle, transparent 1%, #ffffff4d 1%) center/15000%;
+}
+.quantity-change-btn:active {
+    background-color: gray;
+    background-size: 100%;
+    transition: background 0s;
+}
+
+.qty-change-buttons {
+    display: flex;
+    user-select: none;
+}
+
+.quantity-display {
+    width: 67%;
+    text-align: center;
+    position: relative;
+    top: -6px;
+}

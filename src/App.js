@@ -3,7 +3,7 @@ import Discount from './Discount/Discount';
 
 function App() {
 
-  const price = 149.00;
+  const price = 29.99;
 
   const discounts = [
     {
@@ -44,9 +44,31 @@ function App() {
     }
   ];
 
+  const variantConfig = {
+    singleVariant: true
+  }
+
+  const variants=[
+    {
+      name: '8(UK)'
+    },
+    {
+      name: '7(UK)'
+    },
+    {
+      name: '6(UK)'
+    },
+    {
+      name: '5(UK)'
+    }
+  ]
+
   return (
     <div className="App">
-      <Discount className='discount-section' discounts={discounts} price={price} />
+      {
+        discounts.length > 0 &&
+        <Discount className='discount-section' discounts={discounts} price={price} variants={variants} variantConfig={variantConfig} />
+      }
     </div>
   );
 }
