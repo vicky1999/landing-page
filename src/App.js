@@ -45,7 +45,7 @@ function App() {
   ];
 
   const variantConfig = {
-    singleVariant: true
+    singleVariant: false
   }
 
   const variants=[

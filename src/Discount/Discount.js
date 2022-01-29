@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 
 import './Discount.css';
 import DiscountItem from './DiscountItem';
+import MultiVariantSelector from './MultiVariantSelector';
 import SingleVariantSelector from './SingleVariantSelector';
 
 const Discount = (props) => {
@@ -44,6 +45,10 @@ const Discount = (props) => {
             {
                 props.variants.length > 0 && props.variantConfig.singleVariant &&
                 <SingleVariantSelector variants={props.variants} variantConfig={props.variantConfig} discountPrice={price} price={totalPrice} discount={discounts[selectedIndex]} />
+            }
+            {
+                props.variants.length > 0 && !props.variantConfig.singleVariant && 
+                <MultiVariantSelector variants={props.variants} variantConfig={props.variantConfig} discountPrice={price} price={totalPrice} discount={discounts[selectedIndex]} />                
             }
             </div>
             <div className='price-section'>

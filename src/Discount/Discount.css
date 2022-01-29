@@ -206,3 +206,13 @@
     /* top: -6px; */
     margin: auto;
 }
+
+.variant-list-item {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 10px;
+}
+
+.multi-variant-id {
+    margin-right: 10px;
+}
