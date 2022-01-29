@@ -25,6 +25,7 @@ function DatePicker(props) {
     }
 
     const [anchorEl, setAnchorEl] = useState(null);
+    const [arrow, setArrow] = useState('arrow-down');
     const [value, setValue] = useState('All Time');
     const [selectedImage, setSelectedImage] = useState(imageMaps['All Time']);
 
@@ -37,9 +38,11 @@ function DatePicker(props) {
 
 
     const handleClick = (event) => {
-      setAnchorEl(event.currentTarget);
+        setArrow('arrow-down');
+        setAnchorEl(event.currentTarget);
     };
     const handleClose = () => {
+        setArrow('arrow-up');
       setAnchorEl(null);
     };
 
@@ -100,6 +103,7 @@ function DatePicker(props) {
                     </DateRangePicker>
                     <div id='basic-button' ref={inputElement} onClick={handleClick} className='select-input-handler'>
                         <span><img src={selectedImage} className='select-icon' /></span>{value}
+                        <span className='dropdown-arrow'><img src={`/Images/${arrow}.png`} /></span>
                     </div>
                     <Menu
                         id="basic-menu"

@@ -31,8 +31,14 @@
     padding: 5px 2px;
     border-radius: 5px;
     text-align: left;
+    display: flex;
 }
 
 .select-icon {
     padding-right: 10px;
+}
+
+.dropdown-arrow {
+    margin-left: auto;
+    margin-right: 10px;
 }
