@@ -4,13 +4,16 @@ import React, { useState } from 'react';
 
 import './Discount.css';
 import DiscountItem from './DiscountItem';
+import MultiVariantRangeSelector from './MultiVariantRangeSelector';
 import MultiVariantSelector from './MultiVariantSelector';
 import SingleVariantSelector from './SingleVariantSelector';
 
 const Discount = (props) => {
     const discounts = props.discounts;
     
-    const [totalPrice, setTotalPrice] = useState(props.price * discounts[0].count);
+    let tprice = (discounts[0].isRange) ? props.price * discounts[0].from : props.price * discounts[0].count;
+
+    const [totalPrice, setTotalPrice] = useState(tprice);
     const [selectedIndex, setSelectedIndex] = useState(0);
 
     let discountPrice = (totalPrice - (totalPrice * (discounts[0].discount/100))).toFixed(2);
@@ -19,7 +22,7 @@ const Discount = (props) => {
 
     const discountChanged = (ind) => {
         setSelectedIndex(ind);
-        let tp=(props.price * discounts[ind].count).toFixed(2);
+        let tp= (discounts[ind].isRange) ? (props.price * discounts[ind].from).toFixed(2) : (props.price * discounts[ind].count).toFixed(2);
         setTotalPrice(tp);
         let discountPrice = ( tp - (tp * (discounts[ind].discount/100))).toFixed(2);
         setPrice(discountPrice);
@@ -43,12 +46,16 @@ const Discount = (props) => {
             </div>
             <div className='variant-selector'>
             {
-                props.variants.length > 0 && props.variantConfig.singleVariant &&
+                props.variants.length > 0 && props.variantConfig.singleVariant && !props.discounts[0].isRange &&
                 <SingleVariantSelector variants={props.variants} variantConfig={props.variantConfig} discountPrice={price} price={totalPrice} discount={discounts[selectedIndex]} />
             }
             {
-                props.variants.length > 0 && !props.variantConfig.singleVariant && 
+                props.variants.length > 0 && !props.variantConfig.singleVariant && !props.discounts[0].isRange &&
                 <MultiVariantSelector variants={props.variants} variantConfig={props.variantConfig} discountPrice={price} price={totalPrice} discount={discounts[selectedIndex]} />                
+            }
+            {
+                props.variants.length > 0 && !props.variantConfig.singleVariant && props.discounts[0].isRange &&
+                <MultiVariantRangeSelector variants={props.variants} variantConfig={props.variantConfig} discountPrice={price} price={totalPrice} discount={discounts[selectedIndex]} />                
             }
             </div>
             <div className='price-section'>

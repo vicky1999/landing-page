@@ -113,7 +113,7 @@
 }
 
 .variant-selector-section {
-    width: 93%;
+    width: 88%;
     padding: 10px;
     text-align: left;
     padding: 10px;
@@ -209,10 +209,21 @@
 
 .variant-list-item {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: left;
     margin: 10px;
+}
+
+.variants-range-item {
+    width: 82%;
 }
 
 .multi-variant-id {
     margin-right: 10px;
+    min-width: 25px;
+}
+
+.delete-variant {
+    cursor: pointer;
+    margin-left: 10px;
+    margin-top: 3px;
 }

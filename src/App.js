@@ -7,38 +7,49 @@ function App() {
 
   const discounts = [
     {
-      isRange: false,
-      count: 3,
+      isRange: true,
+      // count: 3,      //  count comes for discounts without range
+      from: 3,
+      to: 4,            // From and to comes for discounts with range
       discount: 10,
       isPopular: false
     },
     {
-      isRange: false,
-      count: 4,
+      isRange: true,
+      // count: 4,
+      from: 5,
+      to: 6,
       discount: 20,
       isPopular: true
     },
     {
-      isRange: false,
-      count: 5,
+      isRange: true,
+      // count: 5,
+      from: 7,
+      to: 8,
       discount: 30,
       isPopular: false
     },
     {
-      isRange: false,
-      count: 6,
+      isRange: true,
+      // count: 6,
+      from: 9,
+      to: 10,
       discount: 35,
       isPopular: false
     },
     {
-      isRange: false,
-      count: 7,
+      isRange: true,
+      // count: 7,
+      from: 11,
+      to: 12,
       discount: 40,
       isPopular: false
     },
     {
-      isRange: false,
-      count: 8,
+      isRange: true,
+      // count: 8,
+      from: 13,
       discount: 45,
       isPopular: true
     }
