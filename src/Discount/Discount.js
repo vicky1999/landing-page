@@ -32,6 +32,7 @@ const Discount = (props) => {
         return (
             <DiscountItem 
                 discount={d} key={`disc-${ind}`} index={ind} selected={selectedIndex === ind } 
+                config={props.variantConfig}
                 selectionChange={discountChanged}
             />)
     });

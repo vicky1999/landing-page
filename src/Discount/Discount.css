@@ -33,7 +33,11 @@
 
 .popular-display {
     height: 15px;
-    background-image: url('/public/Images/Group\ 790.svg');
+    width: 75%;
+    right: 0px;
+    margin-left: auto;
+    background-image: url('/public/Images/Rectangle\ 2061.svg');
+
     background-position-x: right;
     background-size: contain;
     background-repeat: no-repeat;
@@ -226,4 +230,31 @@
     cursor: pointer;
     margin-left: 10px;
     margin-top: 3px;
+}
+
+
+/* Popular Container */
+
+.popular-container { 
+    /* width: 75%;
+    margin-left: auto;
+    right: 0;
+    bottom: 5rem;
+    border: 8px solid red;
+    border-right: 0;
+    border-left: 10px solid transparent;
+    height: 0;
+    line-height: 0;
+    color: white;
+    z-index: 1; */
+    -webkit-filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+        filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+  }
+
+.popular-container div {
+	position: relative;
+    font-size: 12px;
+    font-weight: bold;
+    bottom: 0px;
+	text-align: center;  
 }

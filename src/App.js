@@ -56,7 +56,10 @@ function App() {
   ];
 
   const variantConfig = {
-    singleVariant: false
+    singleVariant: false,
+    popularBackground: '#FF535C',
+    popularTextColor: 'white',
+    popularText: 'Populaire!'
   }
 
   const variants=[
@@ -74,12 +77,20 @@ function App() {
     }
   ]
 
+  const options = [
+    { name: 'Option 1' },
+    { name: 'Option 2' },
+    { name: 'Option 3' },
+    { name: 'Option 4' },
+  ]
+
   return (
     <div className="App">
       {
         discounts.length > 0 &&
         <Discount className='discount-section' discounts={discounts} price={price} variants={variants} variantConfig={variantConfig} />
       }
+
     </div>
   );
 }
