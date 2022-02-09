@@ -1,4 +1,4 @@
-# landing-page
+# landing page
 
 # Getting Started with Create React App
 
